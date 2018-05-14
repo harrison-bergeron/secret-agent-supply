@@ -1,13 +1,38 @@
+/* "Tamming" Box Model With Reset */
+/* WTF is this? */
+/* Added section from solution */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Universal Styles */
+/* Added section from solution */
+
 html {
   font-size: 18px;
-  background-color: white;
+  background-color: white; /* This line wasn't in solution */
 }
 
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: "Helvetica", sans-serif;
   line-height: 1.4em;
 }
 
+h1, h4 {
+  font-weight: bold;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Company Header */
+/* Added section from solution */
 .company {
   background-color: black;
   color: white;
@@ -16,19 +41,16 @@ body {
 .company .container {
   display: flex;
   align-items: center;
-  padding: 12px 0 12px 0.5em;
-}
-
-.container {
-  max-width: 960px;
-  margin: 0 auto;
+  padding: .66rem 0 .66rem 0.5rem; /* Changed unit from pixel to rem */
 }
 
 .company img {
   height: 1.5em;
-  padding-right: 15px;
+  padding-right: 1rem; /* Changed unit from pixel to rem */
 }
 
+/* Main Banner */
+/* Added section from solution */
 .main-banner {
   background: url("../images/moto.jpeg");
   background-repeat: no-repeat;
@@ -46,16 +68,35 @@ body {
   top: 9em;
 }
 
-h1, h4 {
-  font-weight: bold;
-}
-
 .headline h1 {
-  font-size: 2em;
-  line-height: 1.2em;
-  margin: 0.25em 0;
+  font-size: 2rem;
+  margin: 0.25rem 0;
+  line-height: 1.2; /* Removed unit */
 }
 
+/* Added < 470px query from solution */
+@media only screen and (max-width: 470px) {
+  .main-banner {
+    height: 15rem;
+  }
+
+  .headline {
+    width: 100%;
+    padding: 1rem 2rem;
+    top: 10rem;
+  }
+
+  .headline h4 {
+    font-size: .77rem;
+  }
+
+  .headline h1 {
+    font-size: 1rem;
+  }
+}
+
+/* Navigation Bar */
+/* Added section from solution */
 nav {
   background-color: firebrick;
   color: white;
@@ -66,17 +107,31 @@ nav ul {
   align-items: center;
   justify-content: space-between;
   padding: 0.75em 0;
-  list-style: none;
+  /*list-style: none; */ /* Removed attribute */
 }
 
 .mobile-nav {
   display: none;
 }
 
+/* Added < 1024px query from solution */
+@media only screen and (max-width: 1024px) {
+  nav ul {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: block;
+    text-align: center;
+  }
+}
+
+/* Products and Business Information Section */
+/* Added section from solution */
 .products, .business-info {
   display: flex;
   justify-content: space-between;
-  margin: 3em 0 0 0;
+  margin: 3rem 0 0 0; /* Changed unit from em to rem */
 }
 
 .product {
@@ -85,15 +140,15 @@ nav ul {
 
 .product-image {
   border: 4px solid black;
-  padding: 2em 0;
-  height: 9em;
+  padding: 2rem 0; /* Changed unit from em to rem */
+  height: 9rem; /* Changed unit from em to rem */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .product-image img {
-  max-width: 8em;
+  max-width: 8rem; /* Changed unit from em to rem */
 }
 
 .description {
@@ -101,7 +156,7 @@ nav ul {
   background-color: black;
   color: white;
   text-align: center;
-  padding: 0.5em;
+  padding: 0.5rem; /* Changed unit from em to rem */
 }
 
 .info {
@@ -112,29 +167,59 @@ nav ul {
   display: block;
   background-color: black;
   color: white;
-  padding: 1em 2em;
+  padding: 1rem 2rem; /* Changed unit from em to rem */
 }
 
-footer {
-  background-color: black;
-  color: white;
-  padding: 5em 0;
-  margin-top: 4em;
-}
-
+/* Added < 1024px query from solution */
 @media only screen and (max-width: 1024px) {
-  /* Screen Size Less Than 1024px */
-  body {
-    font-size: 16px;
-  }
-  nav ul {
-    display: none;
-  }
-  .mobile-nav {
-    display: block;
-    text-align: center;
-  }
   .product {
     width: 47%;
+  }
+
+  /* Added from solution */
+  .product.glasses {
+    display: none;
+  }
+}
+
+/* Added < 470px query from solution */
+@media only screen and (max-width: 470px) {
+  /* Added from solution */
+  .products,
+  .business-info {
+    flex-wrap: wrap;
+  }
+
+  /* Added from solution */
+  .product {
+    width: 90%;
+    margin: auto;
+
+  }
+  /* Added from solution */
+  .product.watch {
+    display: none;
+  }
+
+  /* Added from solution */
+  .info {
+    width: 90%;
+    margin: 0.5rem auto;
+  }
+}
+
+/* Footer */
+/* Added section from solution */
+footer {
+  padding: 5rem 0; /* Changed unit from em to rem */
+  margin-top: 4rem; /* Changed unit from em to rem */
+  background-color: black;
+  color: white;
+}
+
+
+@media only screen and (max-width: 470px) {
+  footer {
+    text-align: center;
   }
 }
