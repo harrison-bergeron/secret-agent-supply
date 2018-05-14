@@ -56,6 +56,23 @@ h1, h4 {
   margin: 0.25em 0;
 }
 
+nav {
+  background-color: firebrick;
+  color: white;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75em 0;
+  list-style: none;
+}
+
+.mobile-nav {
+  display: none;
+}
+
 .products, .business-info {
   display: flex;
   justify-content: space-between;
@@ -109,6 +126,13 @@ footer {
   /* Screen Size Less Than 1024px */
   body {
     font-size: 16px;
+  }
+  nav ul {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+    text-align: center;
   }
   .product {
     width: 47%;
